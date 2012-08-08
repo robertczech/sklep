@@ -1,0 +1,3 @@
+{% for produkty in produkty %}
+<p>{{ produkt.nazwa }}</p>
+{% endfor %}
