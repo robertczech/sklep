@@ -1,8 +1,0 @@
-#!/usr/bin/python
-# TEMPLATE_CONTEXT_PROCESSOR
-
-from produkt.models import *
-
-def globs(request):
-	Kategorie = Kategoria.objeuicts.all()
-	return {'Kategorie': Kategorie}
