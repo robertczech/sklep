@@ -1,11 +1,17 @@
 from django.db import models
+from stdimage import StdImageField
 
 # Create your models here.
 
-class Produkt(models.Model):
+class Kategoria(models.Model):
     nazwa = models.CharField(max_length=60)
-    cena = models.IntegerField()
     def __unicode__(self):
 	return self.nazwa
-    def set__eee(self):
+
+class Produkt(models.Model):
+    kategoria = models.ForeignKey(Kategoria)
+    nazwa = models.CharField(max_length=60)
+    cena = models.IntegerField()
+    image = StdImageField(upload_to='photos', thumbnail_size=(100, 75))
+    def __unicode__(self):
 	return self.nazwa

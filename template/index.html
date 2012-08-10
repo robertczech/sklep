@@ -1,3 +1,9 @@
-{% for produkt in produkty %}
-<p>{{ produkt.nazwa }}</p>
+{% for kategoria in Kategorie %}
+<b> {{ kategoria.nazwa }} </b>.<br>
 {% endfor %}
+<hr>
+{% for produkt in produkty %}
+<img src="{{ produkt.image.thumbnail.url }}">{{ produkt.nazwa }}
+{% endfor %}
+<hr>
+
