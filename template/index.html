@@ -6,4 +6,20 @@
 <img src="{{ produkt.image.thumbnail.url }}">{{ produkt.nazwa }}
 {% endfor %}
 <hr>
+<div class="pagination">
+    <span class="step-links">
+        {% if produkty.has_previous %}
+            <a href="?page={{ produkty.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ produkty.number }} of {{ produkty.paginator.num_pages }}.
+        </span>
+
+        {% if produkty.has_next %}
+            <a href="?page={{ produkty.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+<hr>
 
