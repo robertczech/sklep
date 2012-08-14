@@ -8,7 +8,9 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'produkt.views.index'),
     # url(r'^sklep/', include('sklep.foo.urls')),
-
+    url(r'^kategoria/(?P<kategoria>.*)/$', 'produkt.views.kategoria'),
+    # url(r'^sklep/', include('sklep.foo.urls')),
+    
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

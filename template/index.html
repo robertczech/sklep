@@ -1,25 +1,66 @@
-{% for kategoria in Kategorie %}
-<b> {{ kategoria.nazwa }} </b>.<br>
-{% endfor %}
-<hr>
-{% for produkt in produkty %}
-<img src="{{ produkt.image.thumbnail.url }}">{{ produkt.nazwa }}
-{% endfor %}
-<hr>
-<div class="pagination">
-    <span class="step-links">
-        {% if produkty.has_previous %}
-            <a href="?page={{ produkty.previous_page_number }}">previous</a>
-        {% endif %}
+<!doctype html>
+<html lang="pl" dir="ltr">
+ 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>sklep</title>
+</head>
+ 
+<body>
+<style type="text/css">
+/* <![CDATA[ */
+html, body {
+	background-color: #fff;
+	color: #000;
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+#top {
+	width: 780px;
+}
 
-        <span class="current">
-            Page {{ produkty.number }} of {{ produkty.paginator.num_pages }}.
-        </span>
+#NAGLOWEK {
+	background-color: #888;
+}
 
-        {% if produkty.has_next %}
-            <a href="?page={{ produkty.next_page_number }}">next</a>
-        {% endif %}
-    </span>
+#MENU {
+	width: 150px;
+	float: left;
+	overflow: hidden;
+	background-color: #ccc;
+}
+
+#TRESC {
+	width: 630px;
+	float: left;
+	overflow: hidden;
+	background-color: #fff;
+}
+
+#STOPKA {
+	clear: both;
+	width: 100%;
+	background-color: #888;
+}
+/* ]]> */
+</style>
+
+<div id="top">
+	<div id="NAGLOWEK">Nagłówek szablonu</div>
+	<div id="MENU">
+        <b>Kategorie</b>
+		<ul>
+			{% for kategoria in Kategorie %}
+			<li><a href="/kategoria/{{ kategoria.nazwa }}">{{ kategoria.nazwa }}</a> </li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div id="TRESC">{% block produkt_list %}{% endblock %}</div>
+	<div id="STOPKA">Stopka serwisu</div>
 </div>
-<hr>
-
+</body>
+ 
+</html>
