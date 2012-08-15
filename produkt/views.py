@@ -27,3 +27,8 @@ def kategoria(request, kategoria):
 	page = p.page(1)
     return render_to_response('produkt_list.html',
                              {'produkty': page, 'Kategorie': Kategorie})
+
+def produkt(request, produkt):
+    p = Produkt.objects.filter(nazwa = produkt)
+    return render_to_response('produkt.html',
+                             {'produkty': p, 'Kategorie': Kategorie})

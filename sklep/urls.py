@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', 'produkt.views.index'),
     # url(r'^sklep/', include('sklep.foo.urls')),
     url(r'^kategoria/(?P<kategoria>.*)/$', 'produkt.views.kategoria'),
+    url(r'^produkt/(?P<produkt>.*)/$', 'produkt.views.produkt'),
     # url(r'^sklep/', include('sklep.foo.urls')),
     
     # Uncomment the admin/doc line below to enable admin documentation:
